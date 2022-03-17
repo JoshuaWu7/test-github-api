@@ -21,20 +21,20 @@ In this current version, you will need to manually update the stub token `TOKEN`
 3. Test that the "User Agent" header is required when making a request.
 
 ## How to Run Tests
-In the command line, navigate to the root of your repository. Then run `gradle test`. Alternatively, you can configure the test settings on your preferred IDE.
+In the command line, navigate to the root of your repository, then run `gradle test`. Alternatively, you can configure the test settings on your preferred IDE.
 
 ## Test 1 Justification
-In order to verify that a new gist has been created, we needed to first make sure that the status code of the `POST` request is `Status: 201 Created`.
+In order to verify that a new gist has been created, we needed to verify that the status code of the `POST` request is `Status: 201 Created`.
 This can be done by calling `statusCode()` on a returned `HttpResponse<String>` object.
 
 To test that the file contains the contents `UBC IRP Student QA!`, we call a `GET` request on a URL pathway with the created gist id to access the actual file content.
 This can then be used to compare with the expected file content.
 
 ## Test 2 Justification
-To test that a file parameter is in fact required, this test makes sure that tests without a file parameter will not process.
+To test that a file parameter is in fact required, this test makes sure that requests without a file parameter will not process.
 This test if the request fails by setting the file parameter to `null`.
 The test checks if the response status code is `Status: 422 Unprocessable Entity`. 
 
 ## Test 3 Justification
-To test that a "User Agent" header is required, we make sure that request will not process if it is omitted or if it is incorrect.
+To test that a "User Agent" header is required, we needed to verify that the request will not process if the header is omitted or if it is incorrect.
 This test checks that the response status code for a request is `Status: 401 Unauthorized`.
