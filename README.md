@@ -12,7 +12,7 @@ I used GSON to serialize/deserialize JSON to Java object and vice versa. Please 
 **Setting the Personal Access Token**
 
 To create a gist, you will need to create a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with gist privileges. 
-In this current version, you will need to manually update the stub token `TOKEN` in `/src/test/client`, however it is better to set your token as an environment varaible.
+In this current version, you will need to manually update the stub token `TOKEN` in `/src/test/client`, however it is better to set your token as an environment variable.
 
 **The Testing Done**
 
@@ -21,7 +21,7 @@ In this current version, you will need to manually update the stub token `TOKEN`
 3. Test that the "User Agent" header is required when making a request.
 
 ## How to Run Tests
-In the command line, navigate to the src of your project. Then run `gradle test`. Or you can configure the test settings on your preferred IDE.
+In the command line, navigate to the root of your repository. Then run `gradle test`. Alternatively, you can configure the test settings on your preferred IDE.
 
 ## Test 1 Justification
 In order to verify that a new gist has been created, we needed to first make sure that the status code of the `POST` request is `Status: 201 Created`.
