@@ -1,0 +1,9 @@
+{
+  "description":"Created a private gist from Java!",
+  "files":{
+    "hello_world.txt": {
+      "content": "UBC IRP Student QA!"
+    }
+  },
+  "public":false
+}
