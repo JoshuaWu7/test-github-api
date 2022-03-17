@@ -6,13 +6,13 @@ This guide assumes that you have the latest [JDK 11](https://www.oracle.com/java
 
 **Serializing/Deserializing with GSON**
 
-I used GSON to serialize/deserialize JSON to Java object and vice versa. Please include dependencies in the build file:
+I used GSON to serialize/deserialize JSON to Java objects and vice versa. Please include dependencies in the build file:
 * `implementation 'com.google.code.gson:gson:2.9.0'`
 
 **Setting the Personal Access Token**
 
 To create a gist, you will need to create a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with gist privileges. 
-In this current version, you will need to manually update the stub token `TOKEN` in `/src/test/client`, however it is better to set your token as an environment variable.
+In this current version, you will need to manually update the stub token `TOKEN` in `/src/test/client`, however, it is better to set your token as an environment variable.
 
 **The Testing Done**
 
@@ -24,7 +24,7 @@ In this current version, you will need to manually update the stub token `TOKEN`
 In the command line, navigate to the root of your repository, then run `gradle test`. Alternatively, you can configure the test settings on your preferred IDE.
 
 ## Test 1 Justification
-In order to verify that a new gist has been created, we needed to verify that the status code of the `POST` request is `Status: 201 Created`.
+In order to verify that a new gist has been created, we need to test that the status code of the `POST` request is `Status: 201 Created`.
 This can be done by calling `statusCode()` on a returned `HttpResponse<String>` object.
 
 To test that the file contains the contents `UBC IRP Student QA!`, we call a `GET` request on a URL pathway with the created gist id to access the actual file content.
@@ -32,9 +32,9 @@ This can then be used to compare with the expected file content.
 
 ## Test 2 Justification
 To test that a file parameter is in fact required, this test makes sure that requests without a file parameter will not process.
-This test if the request fails by setting the file parameter to `null`.
-The test checks if the response status code is `Status: 422 Unprocessable Entity`. 
+This test checks if the request fails by setting the file parameter to `null`.
+If the file parameter is null, the expected response status code is `Status: 422 Unprocessable Entity`. 
 
 ## Test 3 Justification
 To test that a "User Agent" header is required, we needed to verify that the request will not process if the header is omitted or if it is incorrect.
-This test checks that the response status code for a request is `Status: 401 Unauthorized`.
+This test checks that the response status code for a request is `Status: 401 Unauthorized`, if no User Agent or incorrect User Agent header is provided.
